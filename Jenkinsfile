@@ -18,12 +18,11 @@ pipeline {
         stage('生成镜像') {
             steps {
                 bat "mvn -f ${project_name} clean package docker:build"
-                bat "docker tag ${project_name} ${imageName}"
             }
         }
         stage('启动镜像') {
             steps {
-                bat "docker run -di -p ${port}:${port} ${imageName}"
+                bat "docker run -di -p ${port}:${port} ${project_name}"
             }
         }
     }
