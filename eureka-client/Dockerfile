@@ -9,5 +9,6 @@ FROM java:8
 FROM openjdk:8-jdk-alpine
 ARG JAR_FILE
 COPY ${JAR_FILE} appclient.jar
-ENTRYPOINT ["java","-jar","/appclient.jar"]
+#ENTRYPOINT ["java","-jar","/appclient.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/appclient.jar"]
 EXPOSE 10002
