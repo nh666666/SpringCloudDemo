@@ -23,7 +23,7 @@ pipeline {
         }
         stage('启动镜像') {
             steps {
-                bat "docker run -di -p ${port}:${port} ${project_name}"
+                bat "docker run -di -p ${port}:${port} ${imageName}"
             }
         }
     }
