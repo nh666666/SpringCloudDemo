@@ -16,7 +16,9 @@ pipeline {
         }
         stage('生成镜像') {
             steps {
+                def imageName = "${project_name}:${tag}"
                 bat "mvn -f ${project_name} clean package docker:build"
+                bat "docker tag ${imageName} ${imageName}:cv1"
             }
         }
     }
