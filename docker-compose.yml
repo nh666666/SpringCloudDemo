@@ -1,0 +1,58 @@
+version: '3'
+services:
+  eureka-server:
+    image: eureka-server
+    restart: always
+    ports:
+      - 10001:10001
+  zuul:
+    image: zuul
+    restart: always
+    ports:
+      - 5555:5555
+    depends_on:
+      - eureka-server
+#      - config-server-git
+  eureka-client:
+    image: eureka-client
+    restart: always
+    ports:
+      - 10002:10002
+    depends_on:
+      - eureka-server
+  ribbon-consumer:
+    image: ribbon-consumer
+    restart: always
+    ports:
+      - 10003:10003
+    depends_on:
+      - eureka-server
+  feign-consumer:
+    image: feign-consumer
+    restart: always
+    ports:
+      - 10004:10004
+    depends_on:
+      - eureka-server
+#  config-server-git:
+#    image: config-server-git
+#    restart: always
+#    ports:
+#      - 10005:10005
+#    depends_on:
+#      - eureka-server
+#  config-client:
+#    image: config-client
+#    restart: always
+#    ports:
+#      - 10006:10006
+#    depends_on:
+#      - eureka-server
+#      - config-server-git
+  ribbon-hystrix-consumer:
+    image: ribbon-hystrix-consumer
+    restart: always
+    ports:
+      - 10007:10007
+    depends_on:
+      - eureka-server

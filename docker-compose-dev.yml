@@ -1,0 +1,34 @@
+version: '3'
+#services:
+#  eureka-server:
+#    build: eureka-server
+#    ports:
+#      - 10001:10001
+#  config-server:
+#    build: config-server-git
+#    ports:
+#      - 10005:10005
+#  config-client:
+#    build: config-client
+#    ports:
+#      - 10006:10006
+#  zuul:
+#    build: zuul
+#    ports:
+#      - 5555:5555
+#  eureka-client:
+#    build: eureka-client
+#    ports:
+#      - 10002:10002
+#  ribbon-consumer:
+#    build: ribbon-consumer
+#    ports:
+#      - 10003:10003
+#  feign-consumer:
+#    build: feign-consumer
+#    ports:
+#      - 10004:10004
+#  ribbon-hystrix-consumer:
+#    build: ribbon-hystrix-consumer
+#    ports:
+#      - 10007:10007
